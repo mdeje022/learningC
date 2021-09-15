@@ -2,7 +2,6 @@
 #include<string.h>
 #define MAX_COMMAND_TOKEN_LENGTH 15
 char getCommandWord(char command[], int maxLength);
-void getDateParameter(char date[], int maxLength);
 int getMonth(char token[]);
 int getDay(char token[]);
 int getYear(char token[]);
@@ -14,3 +13,4 @@ int count(int fromMonth, int fromDay, int fromYear, int toMonth, int toDay, int 
 void handlePrint(void);
 int isLeapYear(int year);
 int countLeapYears(int year, int month);
+int dayOfWeek(int month, int day, int year);

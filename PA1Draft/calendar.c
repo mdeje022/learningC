@@ -4,17 +4,11 @@
 	2. count MM/DD/YYYY mm/dd/yyyy: counts the number of days between two given dates.
 */
 int main(void) {
-	handleCount();
-	// int totalCount = count(9, 1, 2000, 5, 15, 2000);
-	// 	printf("The total count is: %d\n", totalCount);
+
 
 	// char command[MAX_COMMAND_TOKEN_LENGTH];//placeholder for a command...
 	// char lastCharacter;
-
-	// int inverseDays = count(9, 15, 2021, 1, 4, 2000);
-	// int days = count(1, 4, 2000, 9, 15, 2021);
-	// printf("inverse days: %d\n", inverseDays); 
-	// printf("days: %d\n", days); 
+	
 	// while (1) {//main infinite while loop...
 	// 	printf("Please enter a new command...\n");
 
