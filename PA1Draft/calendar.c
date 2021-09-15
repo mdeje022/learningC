@@ -4,8 +4,9 @@
 	2. count MM/DD/YYYY mm/dd/yyyy: counts the number of days between two given dates.
 */
 int main(void) {
-	int totalCount = count(9, 1, 2000, 5, 15, 2000);
-		printf("The total count is: %d\n", totalCount);
+	handleCount();
+	// int totalCount = count(9, 1, 2000, 5, 15, 2000);
+	// 	printf("The total count is: %d\n", totalCount);
 
 	// char command[MAX_COMMAND_TOKEN_LENGTH];//placeholder for a command...
 	// char lastCharacter;
@@ -37,14 +38,20 @@ int main(void) {
 	// 			lastCharacter = getCommandWord(command, MAX_COMMAND_TOKEN_LENGTH);
 	// 	}
 	// }
-	return 0;
+	// return 0;
 }
 char getCommandWord(char command[], int maxLength) {
 	char lastCharacter;
 	int i;
 	for (i = 0; i < maxLength - 1 && (command[i] = getchar()) != ' ' && command[i] != '\n'; i++);
 	lastCharacter = command[i];
-	//printf("last character: %d", lastCharacter);
 	command[i] = '\0';//end of string sign
 	return lastCharacter;
+}
+
+void getDateParameter(char date[], int maxLength) {
+	char lastCharacter;
+	int i;
+	for (i = 0; i < maxLength - 1 && ((date[i] = getchar()) != ' ' && date[i] != '\n'  && date[i] != '/'); i++);
+	date[i] = '\0';//end of string sign
 }

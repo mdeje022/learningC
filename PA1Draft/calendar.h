@@ -2,6 +2,7 @@
 #include<string.h>
 #define MAX_COMMAND_TOKEN_LENGTH 15
 char getCommandWord(char command[], int maxLength);
+void getDateParameter(char date[], int maxLength);
 int getMonth(char token[]);
 int getDay(char token[]);
 int getYear(char token[]);

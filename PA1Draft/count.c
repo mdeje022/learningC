@@ -15,6 +15,7 @@ int count(int fromMonth, int fromDay, int fromYear, int toMonth, int toDay, int 
 	}
 	//then count days
 	count += (toDay - fromDay);
+	printf("count: %d", count);
 	return count;
 }
 int getMonth(char token[]) {
@@ -50,6 +51,32 @@ int getYear(char token[]) {
 }
 void handleCount(void) {
 	/* Your code comes here */
+	//getchar(); //skipping the white space after command
+	
+	char fromMonth[3];	
+	char fromDay[3];
+	char fromYear[5];
+	char toMonth[3];
+	char toDay[3];
+	char toYear[5];
+
+	getDateParameter(fromMonth, 3);
+	getDateParameter(fromDay, 3);
+	getDateParameter(fromYear, 3);
+	getchar();
+	getDateParameter(toMonth, 3);
+	getDateParameter(toDay, 5);
+	getDateParameter(toYear, 5);
+
+	int fromM = getMonth(fromMonth);
+	int fromD = getDay(fromDay);
+	int fromY = getDay(fromYear);
+	int toM = getMonth(toMonth);
+	int toD = getDay(toDay);
+	int toY = getDay(toYear);
+
+	count(fromM, fromD, fromY, toM, toD, toY);
+
 }
 int monthDays(int month, int year) {
 	switch (month) {
