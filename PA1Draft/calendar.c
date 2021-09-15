@@ -11,7 +11,10 @@ int main(void) {
 	// char command[MAX_COMMAND_TOKEN_LENGTH];//placeholder for a command...
 	// char lastCharacter;
 
-	
+	// int inverseDays = count(9, 15, 2021, 1, 4, 2000);
+	// int days = count(1, 4, 2000, 9, 15, 2021);
+	// printf("inverse days: %d\n", inverseDays); 
+	// printf("days: %d\n", days); 
 	// while (1) {//main infinite while loop...
 	// 	printf("Please enter a new command...\n");
 
@@ -47,11 +50,4 @@ char getCommandWord(char command[], int maxLength) {
 	lastCharacter = command[i];
 	command[i] = '\0';//end of string sign
 	return lastCharacter;
-}
-
-void getDateParameter(char date[], int maxLength) {
-	char lastCharacter;
-	int i;
-	for (i = 0; i < maxLength - 1 && ((date[i] = getchar()) != ' ' && date[i] != '\n'  && date[i] != '/'); i++);
-	date[i] = '\0';//end of string sign
 }

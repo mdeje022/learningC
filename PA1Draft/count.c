@@ -3,16 +3,30 @@
 some relevant functions
 */
 int count(int fromMonth, int fromDay, int fromYear, int toMonth, int toDay, int toYear) {
-	/* Your code comes here */
 	int count = 0;
-	//count in years 
-	for(int i = fromYear;  i < toYear; i++){
-		count += 365 + isLeapYear(i); 
+	
+	//check order of dates
+	if(compareTo(fromMonth, fromDay, fromYear, toMonth, toDay, toYear) <= 1){
+		//count years
+		for(int i = fromYear; i < toYear; i++){
+ 			count += 365 + isLeapYear(i); 
+		}
+		//months
+		for (int i = fromMonth; i < toMonth; i++){
+			count += monthDays(i, toYear);
+		}
+	} else {
+		//years inverse order 
+		for(int i = toYear; i < fromYear; i++){
+ 			count += 365 + isLeapYear(i);
+		}
+		//months inverse order
+		for (int i = toMonth; i < fromMonth; i++){
+			count += monthDays(i, fromYear);
+		}
+		count = count * -1; 
 	}
-	//then count in months 
-	for (int i = fromMonth; i < toMonth; i++){
-		count += monthDays(i, toYear);
-	}
+
 	//then count days
 	count += (toDay - fromDay);
 	printf("count: %d", count);
@@ -53,30 +67,7 @@ void handleCount(void) {
 	/* Your code comes here */
 	//getchar(); //skipping the white space after command
 	
-	char fromMonth[3];	
-	char fromDay[3];
-	char fromYear[5];
-	char toMonth[3];
-	char toDay[3];
-	char toYear[5];
-
-	getDateParameter(fromMonth, 3);
-	getDateParameter(fromDay, 3);
-	getDateParameter(fromYear, 3);
-	getchar();
-	getDateParameter(toMonth, 3);
-	getDateParameter(toDay, 5);
-	getDateParameter(toYear, 5);
-
-	int fromM = getMonth(fromMonth);
-	int fromD = getDay(fromDay);
-	int fromY = getDay(fromYear);
-	int toM = getMonth(toMonth);
-	int toD = getDay(toDay);
-	int toY = getDay(toYear);
-
-	count(fromM, fromD, fromY, toM, toD, toY);
-
+	printf("test\n");
 }
 int monthDays(int month, int year) {
 	switch (month) {
