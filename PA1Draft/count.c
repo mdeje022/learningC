@@ -4,7 +4,18 @@ some relevant functions
 */
 int count(int fromMonth, int fromDay, int fromYear, int toMonth, int toDay, int toYear) {
 	/* Your code comes here */
-	return 0;
+	int count = 0;
+	//count in years 
+	for(int i = fromYear;  i < toYear; i++){
+		count += 365 + isLeapYear(i); 
+	}
+	//then count in months 
+	for (int i = fromMonth; i < toMonth; i++){
+		count += monthDays(i, toYear);
+	}
+	//then count days
+	count += (toDay - fromDay);
+	return count;
 }
 int getMonth(char token[]) {
 	int n;
