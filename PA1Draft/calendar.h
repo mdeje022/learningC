@@ -12,3 +12,4 @@ void handleCount(void);
 int count(int fromMonth, int fromDay, int fromYear, int toMonth, int toDay, int toYear);
 void handlePrint(void);
 int isLeapYear(int year);
+int countLeapYears(int year, int month);
