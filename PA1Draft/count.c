@@ -3,25 +3,30 @@
 some relevant functions
 */
 int count(int fromMonth, int fromDay, int fromYear, int toMonth, int toDay, int toYear) {
-	/* Your code comes here */
-	int mCount1 = 0;
-	int mCount2 = 0;
 	int count = 0;
+	
+	//check order of dates
+	if(compareTo(fromMonth, fromDay, fromYear, toMonth, toDay, toYear) <= 1){
+		//count years
+		for(int i = fromYear; i < toYear; i++){
+ 			count += 365 + isLeapYear(i); 
+		}
+		//months
+		for (int i = fromMonth; i < toMonth; i++){
+			count += monthDays(i, toYear);
+		}
+	} else {
+		//years inverse order 
+		for(int i = toYear; i < fromYear; i++){
+ 			count += 365 + isLeapYear(i);
+		}
+		//months inverse order
+		for (int i = toMonth; i < fromMonth; i++){
+			count += monthDays(i, fromYear);
+		}
+		count = count * -1; 
+	}
 
-	//count years 
-	count += (toYear - fromYear) * 365;
-	//count leap years in between them
-	count += countLeapYears(toYear, toMonth) - countLeapYears(fromYear, fromMonth);
-	
-	//count months
-	for (int i = 0; i < fromMonth; i++){
-		mCount1 += monthDays(i, fromYear);
-	}
-	for (int i = 0; i < toMonth; i++){
-		mCount2 += monthDays(i, toYear);
-	}
-	count += mCount2 - mCount1;
-	
 	//then count days
 	count += (toDay - fromDay);
 	return count;
@@ -100,14 +105,4 @@ int isLeapYear(int year) //97 leap years in every 400 years... 365 days + 97/400
 {
 	return (year % 400 == 0) || (year % 4 == 0 && year % 100 != 0);//2000, 2020, 1600, 2024, 2016,... are leap years...
 	//1900, 1800, 1700, 2100, 2002, 2019,... are not leap years...
-}
-
-int countLeapYears(int year, int month) //returns all the leap years that have happend until the year of input
-{
-	int count;
-	if(month <= 2) //checking if current year should be considered for leap year
-		year--;
-	
-	count = (year/4) - (year/100) + (year/400);
-	return count;
 }
