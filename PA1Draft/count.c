@@ -29,7 +29,7 @@ int count(int fromMonth, int fromDay, int fromYear, int toMonth, int toDay, int 
 
 	//then count days
 	count += (toDay - fromDay);
-	printf("count: %d", count);
+	printf("count: %d\n", count);
 	return count;
 }
 int getMonth(char token[]) {
@@ -64,10 +64,35 @@ int getYear(char token[]) {
 	return n;
 }
 void handleCount(void) {
-	/* Your code comes here */
-	//getchar(); //skipping the white space after command
+
+	char monthData_1[3];
+	char dayData_1[3];
+	char yearData_1[5];
+	char monthData_2[3];
+	char dayData_2[3];
+	char yearData_2[5];
+
+	getData(monthData_1, 3);
+	int month_1 = getMonth(monthData_1);
+	getData(dayData_1, 3);
+	int day_1 = getDay(dayData_1);
+	getData(yearData_1, 5);
+	int year_1 = getYear(yearData_1);
+	getData(monthData_2, 3);
+	int month_2 = getMonth(monthData_2);
+	getData(dayData_2, 3);
+	int day_2 = getDay(dayData_2);
+	getData(yearData_2, 5);
+	int year_2 = getYear(yearData_2);
+
+	// if (!isValidDate(month_1, day_1, year_1) || !isValidDate(month_2, day_2, year_2)){
+	// 	printf("invalid date\n");
+	// 	return;
+	// }
 	
-	printf("test\n");
+	//printf("%d %d %d %d %d %d\n", month_1, day_1, year_1, month_2, day_2, year_2);
+	count(month_1, day_1, year_1, month_2, day_2, year_2);
+
 }
 int monthDays(int month, int year) {
 	switch (month) {

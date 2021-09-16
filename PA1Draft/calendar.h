@@ -14,3 +14,4 @@ void handlePrint(void);
 int isLeapYear(int year);
 int countLeapYears(int year, int month);
 int dayOfWeek(int month, int day, int year);
+void getData (char c[], int arraySize);
