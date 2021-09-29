@@ -1,6 +1,7 @@
 #include"railcipher.h"
 
 int main(void) {
+
 	char command[MAX_COMMAND_TOKEN_LENGTH];//placeholder for a command...
 	char lastCharacter;
 	lastCharacter = getCommandWord(command, MAX_COMMAND_TOKEN_LENGTH, " ");

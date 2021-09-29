@@ -9,3 +9,5 @@ void handleEncryption(void);
 void handleDecryption(void);
 char getLine(char* line, int limit);
 void handleDecryption(void);
+char* getCipher(char* cipher,  int maxLine);
+

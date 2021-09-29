@@ -64,6 +64,7 @@ void handleEncryption(void) {
 	int keys[MAX_KEY_LENGTH];
 	char temp, line[MAX_LINE_LENGTH];
 	int i = 0, j, k, nwords, nlines, maxwords = -1;
+	//retrieving keys and checking if they are valid
 	k = getKeys(keys);
 	if (getchar() != '\n' || k < 1) {
 		printf("Error: syntax  of encryption command is not valid!\n");
@@ -73,19 +74,20 @@ void handleEncryption(void) {
 		printf("Error: invalid key! key of length %d must be a permutation of non-negative integers less than %d\n", k, k);
 		return;
 	}
+
 	i = 0;
-	while (1) {
+	while (1){ 													//loop for every line or "sentence"
 		temp = getLine(line, MAX_LINE_LENGTH);
 		if (i == MAX_NUM_SENTENCES)
 			break;
-		nwords = wordCount(line);
-		if (!nwords) {
+		nwords = wordCount(line);		
+		if (!nwords) {											//checks foro special case where nwords is negative
 			i--;
 			if (temp == EOF)
 				break;
 			continue;
 		}
-		if (maxwords < nwords)
+		if (maxwords < nwords)										//update maxwords if the current line has more
 			maxwords = nwords;
 		nwordsArray[i] = nwords;
 		sentences[i] = (char**)malloc(nwords * sizeof(char*));
